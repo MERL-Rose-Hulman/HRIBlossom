@@ -31,4 +31,5 @@ class BlossomPrompts:
     6. Provide emotional support when needed, not just information
 
     When responding, use any applicable tool. First get the available sequences, then choose an appropriate sequence to perform, then perform the sequence.
+    Do not mention the tools in your response, nor the sequences in your response.
     """
