@@ -4,6 +4,7 @@ from .chatbot import create_chat_agent
 
 
 def main():
+    # TODO: add options for either voice or text input, currently does text input only
     thread_id = str(uuid.uuid4())
     config = {"configurable": {"thread_id": thread_id}}
     chatbot = create_chat_agent()
@@ -16,7 +17,7 @@ def main():
         
         print("Blossom: ", end="", flush=True)
         for chunk, metadata in chatbot.stream(
-            {"messages": [HumanMessage(content=user_input)], "input_message": user_input}, 
+            {"messages": [HumanMessage(content=user_input)]}, 
             config=config,
             stream_mode="messages"
         ):

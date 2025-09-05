@@ -27,7 +27,7 @@ def create_chat_agent():
     def chatbot_node(state: ChatBotState):
         query = state.messages[-1].content
         response = chain.invoke({"input": query})
-        return {"messages": [response], "input_message": query}
+        return {"messages": [response]}
 
         
     tools_node = ToolNode(CHATBOT_TOOLS)

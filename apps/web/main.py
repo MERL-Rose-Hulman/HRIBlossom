@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from apps.web.sequence import SequenceResponse
 
+# TODO: Complete blockly app to create custom gestures.
 
 app = FastAPI()
 
