@@ -1,5 +1,5 @@
 from langchain_core.tools import tool
-from ..shared.utils.sequence import get_all_sequences, get_sequence_by_name, get_all_sequences_str
+from apps.shared.utils.sequence import get_all_sequences, get_all_sequences_str, get_sequence_by_name
 
 
 @tool(parse_docstring=True)
