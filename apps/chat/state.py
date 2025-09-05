@@ -7,3 +7,4 @@ from langgraph.graph import add_messages
 class ChatBotState(BaseModel):
     messages: Annotated[List[BaseMessage], add_messages]
     input_emotion: Optional[str] = None
+    input_message: str

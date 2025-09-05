@@ -5,9 +5,9 @@ from typing import List, Union
 from pypot.primitive import Primitive, LoopPrimitive
 from pypot.robot import Robot
 
-from apps.shared.models.robot import BlossomRobot
-from apps.shared.models.frame import Frame
-from apps.shared.models.position import Position
+from .robot import BlossomRobot
+from .frame import Frame
+from .position import Position
 
 
 class Sequence(Primitive):
