@@ -8,6 +8,7 @@ from pypot.robot import Robot
 from .robot import BlossomRobot
 from .frame import Frame
 from .position import Position
+from ..constants import SEQUENCE_DIR, get_blossom_robot
 
 
 class Sequence(Primitive):
@@ -65,12 +66,12 @@ class Sequence(Primitive):
         return cls(robot, animation, frames)
 
     @staticmethod
-    def get_all_sequences(sequence_dir: str, robot: BlossomRobot) -> List["Sequence"]:
+    def get_all_sequences() -> List["Sequence"]:
         sequences: List["Sequence"] = []
-        for file in os.listdir(sequence_dir):
+        for file in os.listdir(SEQUENCE_DIR):
             if file.endswith("sequence.json"):
                 sequences.append(
-                    Sequence.from_config(os.path.join(sequence_dir, file), robot)
+                    Sequence.from_config(os.path.join(SEQUENCE_DIR, file), get_blossom_robot())
                 )
         return sequences
 

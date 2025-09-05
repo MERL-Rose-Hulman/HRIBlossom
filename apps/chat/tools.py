@@ -1,5 +1,5 @@
 from langchain_core.tools import tool
-from ..shared.utils.sequence import get_all_sequences, get_sequence_by_name
+from ..shared.utils.sequence import get_all_sequences, get_sequence_by_name, get_all_sequences_str
 
 
 @tool(parse_docstring=True)
@@ -31,8 +31,7 @@ def play_sequence(sequence_name: str) -> str:
     # print(f"Playing sequence: {sequence_name}")
     sequence = get_sequence_by_name(sequence_name)
     if sequence is None:
-        available_sequences = get_available_sequences()
-        return f"Sequence '{sequence_name}' not found. Available sequences:\n{available_sequences}"
+        return f"Sequence '{sequence_name}' not found. Available sequences:\n{get_all_sequences_str()}"
     
     try:
         # Start the sequence in a separate thread
