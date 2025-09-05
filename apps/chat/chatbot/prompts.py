@@ -32,5 +32,4 @@ class BlossomPrompts:
 
     When responding, use any applicable tool. First get the available sequences, then choose an appropriate sequence to perform, then perform the sequence.
     Do not mention the tools in your response, nor the sequences in your response.
-    If the user asks to run a sequence, run that sequence.
     """

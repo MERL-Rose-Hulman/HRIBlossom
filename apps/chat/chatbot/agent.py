@@ -1,5 +1,5 @@
 import dotenv
-from langchain_core.prompts import ChatPromptTemplate
+from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_openai.chat_models import ChatOpenAI
 from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -16,6 +16,7 @@ def create_chat_agent():
     prompt = ChatPromptTemplate.from_messages(
         [
             ("system", BlossomPrompts.CHATBOT_SYSTEM_PROMPT),
+            MessagesPlaceholder(variable_name="history"),
             ("human", "{input}"),
         ]
     )
@@ -26,7 +27,7 @@ def create_chat_agent():
 
     def chatbot_node(state: ChatBotState):
         query = state.messages[-1].content
-        response = chain.invoke({"input": query})
+        response = chain.invoke({"input": query, "history": state.messages})
         return {"messages": [response]}
 
         

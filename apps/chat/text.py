@@ -1,10 +1,9 @@
 import uuid
 from langchain_core.messages import AIMessage, HumanMessage
-from .chatbot import create_chat_agent
+from .chatbot.agent import create_chat_agent
 
 
 def main():
-    # TODO: add options for either voice or text input, currently does text input only
     thread_id = str(uuid.uuid4())
     config = {"configurable": {"thread_id": thread_id}}
     chatbot = create_chat_agent()

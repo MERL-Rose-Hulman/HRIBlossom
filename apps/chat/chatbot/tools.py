@@ -9,7 +9,7 @@ def get_available_sequences() -> str:
     Returns:
         A string containing the names of all available sequences, one per line.
     """
-    # print("Getting available sequences")
+    print("Getting available sequences")
     sequences = get_all_sequences()
     if not sequences:
         return "No sequences available."
@@ -28,7 +28,7 @@ def play_sequence(sequence_name: str) -> str:
     Returns:
         A string indicating whether the sequence was successfully started or if there was an error.
     """
-    # print(f"Playing sequence: {sequence_name}")
+    print(f"Playing sequence: {sequence_name}")
     sequence = get_sequence_by_name(sequence_name)
     if sequence is None:
         return f"Sequence '{sequence_name}' not found. Available sequences:\n{get_all_sequences_str()}"
