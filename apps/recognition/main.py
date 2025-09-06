@@ -18,6 +18,8 @@ To train the model, run the folowing script in your terminal: (requires docker t
     cd apps/recognition/train && docker build -t gesture-trainer .
 
     docker run --rm -v "${PWD}/training_data:/workspace/data" -v "${PWD}/models:/workspace/output" gesture-trainer
+
+Note: After running docker run..., the script will appear in the docker desktop app.
 """
 
 CAMERA_INDEX = 0
