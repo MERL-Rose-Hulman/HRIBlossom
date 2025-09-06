@@ -4,14 +4,21 @@ from mediapipe.tasks.python.core.base_options import BaseOptions
 from mediapipe.tasks.python.vision.core.vision_task_running_mode import VisionTaskRunningMode
 from mediapipe.tasks.python.vision.gesture_recognizer import GestureRecognizer, GestureRecognizerOptions, GestureRecognizerResult
 
-from apps.shared.utils.sequence import get_sequence_by_name
 
-# https://ai.google.dev/edge/mediapipe/solutions/vision/gesture_recognizer
-# https://colab.research.google.com/github/googlesamples/mediapipe/blob/main/examples/gesture_recognizer/python/gesture_recognizer.ipynb#scrollTo=OMjuVQiDYJKF
-# https://ai.google.dev/edge/mediapipe/solutions/vision/gesture_recognizer#models
-# https://ai.google.dev/edge/mediapipe/solutions/customization/gesture_recognizer
-# Recognized 👍, 👎, ✌️, ☝️, ✊, 👋, 🤟 by default
+"""
+The default model, gesture_recognizer.task, detects the following gestures:
+👍, 👎, ✌️, ☝️, ✊, 👋, 🤟
 
+To create a custom model, we need to train it on our own data.
+Using the collect_images_simple.py script, we can collect images of the gestures we want to train on.
+The GESTURES constant in top of the file is list of all gestures we want to train. Adding a gesture to the list will add it to the model once the training is complete.
+
+The trained model is saved in the gestures/gesture_model.task file.
+To train the model, run the folowing script in your terminal: (requires docker to be installed)
+    cd apps/recognition/train && docker build -t gesture-trainer .
+
+    docker run --rm -v "${PWD}/training_data:/workspace/data" -v "${PWD}/models:/workspace/output" gesture-trainer
+"""
 
 CAMERA_INDEX = 0
 GESTURE_DICT = {
